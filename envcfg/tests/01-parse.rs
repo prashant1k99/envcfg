@@ -6,4 +6,8 @@ pub struct DbConfig {
     port: String,
 }
 
-fn main() {}
+fn main() {
+    let cfg = DbConfig::builder().load_from_env().build().unwrap();
+
+    assert_eq!(cfg.host(),);
+}
