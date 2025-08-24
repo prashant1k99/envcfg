@@ -1,6 +1,6 @@
 extern crate proc_macro;
 use proc_macro::TokenStream;
-use quote::{format_ident, quote};
+use quote::quote;
 use syn::{DeriveInput, parse_macro_input};
 
 #[proc_macro_derive(EnvCfg, attributes(env_cfg))]
@@ -9,7 +9,9 @@ pub fn derive(input: TokenStream) -> TokenStream {
 
     dbg!(ast);
 
-    let expanded = quote! {};
+    let expanded = quote! {
+        // Implementation comes here
+    };
 
     TokenStream::from(expanded)
 }

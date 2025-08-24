@@ -1,7 +1,13 @@
 [package]
 name = "envcfg"
-version = "0.1.0"
+version = "0.0.1"
 autotests = false
+description = "A Rust crate for environment configuration management."
+license = "MIT"
+license-file = "LICENSE"
+documentation = "https://docs.rs/envcfg"
+homepage = "https://github.com/prashant1k99/envcfg"
+repository = "https://github.com/prashant1k99/envcfg"
 edition = "2024"
 publish = true
 

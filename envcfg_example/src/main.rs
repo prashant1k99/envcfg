@@ -1,4 +1,4 @@
-use std::collections::hash_map;
+use std::collections::{HashMap, hash_map};
 
 use envcfg::EnvCfg;
 
@@ -6,6 +6,42 @@ use envcfg::EnvCfg;
 pub struct DbConfig {
     db_username: String,
     db_password: String,
+    #[env_cfg(from = "DB_HOST")]
+    db_host: String,
+}
+
+pub struct DbConfigBuilder {
+    db_username: Option<String>,
+    db_password: Option<String>,
+    db_host: Option<String>,
+}
+
+impl DbConfigBuilder {
+    fn load_from_env(&mut self) -> Self {
+        todo!()
+    }
+
+    fn load_from_hashmap<T: Iterator>(&mut self, hm: HashMap<String, T>) -> Self {
+        todo!()
+    }
+
+    fn set_db_username(&mut self, db_username: String) -> Self {
+        todo!()
+    }
+
+    fn set_db_password(&mut self, db_password: String) -> Self {
+        todo!()
+    }
+
+    fn build(&self) -> Result<DbConfig, String> {
+        todo!()
+    }
+}
+
+impl DbConfig {
+    fn builder() -> DbConfigBuilder {
+        todo!()
+    }
 }
 
 #[derive(EnvCfg)]
@@ -25,10 +61,12 @@ pub struct Config {
 }
 
 fn main() {
-    let db_cfg = DbConfig {
-        db_username: String::from("MyUsername"),
-        db_password: String::from("MySecretPassword"),
-    };
+    let db_cfg = DbConfig::builder()
+        .load_from_env()
+        .set_db_username(String::from("MyUsername"))
+        .set_db_password(String::from("MySecretPassword"))
+        .build()
+        .unwrap();
 
     let mut h_map = hash_map::HashMap::new();
     h_map.insert("config_1", "Value_1");
