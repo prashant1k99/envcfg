@@ -1,0 +1,7 @@
+[package]
+name = "envcfg_example"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+envcfg = { path = "../envcfg" }
