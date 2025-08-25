@@ -33,6 +33,10 @@ impl DbConfigBuilder {
         todo!()
     }
 
+    fn set_db_host(&mut self, d_host: String) -> Self {
+        todo!()
+    }
+
     fn build(&self) -> Result<DbConfig, String> {
         todo!()
     }
@@ -41,6 +45,18 @@ impl DbConfigBuilder {
 impl DbConfig {
     fn builder() -> DbConfigBuilder {
         todo!()
+    }
+
+    fn db_password(&self) -> String {
+        self.db_password.clone()
+    }
+
+    fn db_host(&self) -> String {
+        self.db_host.clone()
+    }
+
+    fn db_username(&self) -> String {
+        self.db_username.clone()
     }
 }
 
@@ -58,6 +74,46 @@ pub struct Config {
     config_2: String,
     #[env_cfg(from = "cfg_3")]
     config_3: String,
+}
+
+impl Config {
+    fn builder() -> ConfigBuilder {
+        todo!()
+    }
+
+    fn db_config(&self) -> &DbConfig {
+        &self.db_config
+    }
+
+    fn port(&self) -> String {
+        self.port.clone()
+    }
+}
+
+pub struct ConfigBuilder {
+    db_config: Option<DbConfig>,
+    port: Option<String>,
+    config_1: Option<String>,
+    config_2: Option<String>,
+    config_3: Option<String>,
+}
+
+impl ConfigBuilder {
+    fn load_from_env(&mut self) -> Self {
+        todo!()
+    }
+
+    fn load_from_hashmap<T: Copy>(&mut self, hm: HashMap<&str, T>) -> Self {
+        todo!()
+    }
+
+    fn set_db_config(&mut self, db_config: DbConfig) -> Self {
+        todo!()
+    }
+
+    fn build(&self) -> Result<Config, String> {
+        todo!()
+    }
 }
 
 fn main() {

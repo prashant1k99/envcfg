@@ -10,6 +10,8 @@ pub fn derive(input: TokenStream) -> TokenStream {
 
     dbg!(ast);
 
+    // Do not allow Option in config struct
+
     let expanded = quote! {
         // Implementation comes here
     };
